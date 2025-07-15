@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diletta Lecetti - Art & Fashion Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-light: #84DCC6; /* Soft Teal */
-            --primary-dark: #40B0A6; /* Darker Teal for accents */
-            --secondary-accent: #FFAD60; /* Soft Orange */
-            --text-dark: #333A40; /* Dark Charcoal */
-            --text-medium: #6B7B8F; /* Medium Grey-Blue */
-            --background-body: #F4F8FA; /* Very light blue-grey */
+            --beige-lightest: #F8F5EE; /* Beige chiarissimo, quasi bianco sporco */
+            --beige-light: #EDE8DF;    /* Beige chiaro */
+            --beige-medium: #DDC8AE;   /* Beige medio, un po' più caldo */
+            --beige-dark: #B9A083;     /* Beige più scuro */
+            --beige-darker: #8D735A;   /* Beige ancora più scuro */
+            --text-primary: #4A403A;   /* Marrone scuro per testo principale */
+            --text-secondary: #7A6F66; /* Marrone medio per testo secondario */
+            --text-light: #A39B90;     /* Marrone chiaro per testo leggero */
+            --background-body: #FDFBF8; /* Sfondo generale molto chiaro */
             --background-card: #FFFFFF;
-            --border-soft: #E0E6EB;
-            --shadow-light: rgba(0, 0, 0, 0.08);
-            --shadow-hover: rgba(0, 0, 0, 0.15);
+            --border-color: #E2DED6;   /* Bordo leggermente più scuro del beige chiaro */
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -27,66 +30,59 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.7;
-            color: var(--text-dark);
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
             background-color: var(--background-body);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 30px 20px;
+            scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 1050px;
+            max-width: 950px;
             width: 100%;
             margin: 0 auto;
             background-color: var(--background-card);
-            box-shadow: 0 15px 35px var(--shadow-light);
-            border-radius: 12px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow-light);
             overflow: hidden;
-            padding: 0; /* Sections will handle padding */
         }
 
         .header {
-            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--beige-medium) 0%, var(--beige-dark) 100%);
             color: white;
-            padding: 70px 40px;
+            padding: 60px 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            border-radius: 12px 12px 0 0; /* Match container border */
+            border-radius: 10px 10px 0 0;
+            animation: header-fade-in 1s ease-out forwards;
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(30deg);
-            pointer-events: none;
-            opacity: 0.3;
+        @keyframes header-fade-in {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .profile-image {
-            width: 160px;
-            height: 160px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            background: var(--secondary-accent);
-            margin: 0 auto 25px;
+            background: var(--beige-light);
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 70px;
-            color: white;
+            font-size: 60px;
+            color: var(--text-primary);
             border: 4px solid white;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-in-out;
-            overflow: hidden; /* Ensure image doesn't break border-radius */
+            overflow: hidden;
         }
 
         .profile-image img {
@@ -97,75 +93,71 @@
         }
 
         .profile-image:hover {
-            transform: scale(1.08) rotate(-3deg);
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
+            font-family: 'Merriweather', serif;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
+            font-family: 'Lato', sans-serif;
+            font-size: 1.3rem;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             font-weight: 400;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 30px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.98rem;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
             font-weight: 300;
-            transition: color 0.2s ease;
         }
 
         .contact-item i {
-            color: var(--secondary-accent);
-            font-size: 1.2rem;
-        }
-
-        .contact-item:hover {
-            color: white;
+            color: var(--beige-lightest); /* Icone più chiare per contrasto */
+            font-size: 1.1rem;
         }
 
         .download-btn {
-            background: var(--secondary-accent);
-            color: white;
-            padding: 14px 30px;
+            background: white;
+            color: var(--beige-darker);
+            padding: 12px 28px;
             border: none;
-            border-radius: 50px; /* Pill shape */
-            font-size: 1.05rem;
+            border-radius: 5px;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: 0 8px 20px rgba(255, 173, 96, 0.3);
-            text-transform: uppercase;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .download-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 25px rgba(64, 176, 166, 0.4);
+            background: var(--beige-darker);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
 
         .main-content {
@@ -174,62 +166,69 @@
 
         .section {
             background: var(--background-card);
-            border-radius: 10px;
-            padding: 40px;
+            border-radius: 8px;
+            padding: 35px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 25px var(--shadow-light);
-            border: 1px solid var(--border-soft);
+            box-shadow: 0 5px 15px var(--shadow-light);
+            border: 1px solid var(--border-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px var(--shadow-hover);
+            box-shadow: 0 8px 20px var(--shadow-medium);
         }
 
         .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
-            color: var(--primary-dark);
-            margin-bottom: 30px;
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            color: var(--beige-darker);
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed var(--border-soft); /* Dashed line */
+            gap: 12px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
         }
 
         .section-title i {
-            color: var(--secondary-accent);
-            font-size: 1.8rem;
+            color: var(--beige-dark); /* Icone dei titoli leggermente più chiare */
+            font-size: 1.6rem;
         }
 
         .section-image {
             width: 100%;
-            height: 280px;
+            height: 250px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 6px;
             margin-bottom: 25px;
-            box-shadow: 0 8px 20px var(--shadow-light);
-            border: 1px solid var(--border-soft);
+            box-shadow: 0 5px 15px var(--shadow-light);
+            border: 1px solid var(--border-color);
             transition: transform 0.3s ease;
         }
 
         .section-image:hover {
-            transform: scale(1.02);
+            transform: scale(1.01);
         }
 
         .about-text {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text-medium);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
             text-align: justify;
         }
 
         .education-item, .experience-item {
-            border-left: 3px solid var(--primary-light);
-            padding-left: 25px;
-            margin-bottom: 35px;
+            border-left: 3px solid var(--beige-dark);
+            padding-left: 20px;
+            margin-bottom: 25px;
             position: relative;
         }
 
@@ -240,163 +239,163 @@
             top: 0;
             width: 16px;
             height: 16px;
-            background: var(--primary-dark);
+            background: var(--beige-darker);
             border-radius: 50%;
             border: 3px solid var(--background-card);
-            box-shadow: 0 0 0 2px var(--primary-dark);
+            box-shadow: 0 0 0 2px var(--beige-dark);
         }
 
         .item-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
+            font-family: 'Lato', sans-serif;
+            font-size: 1.25rem;
             font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 5px;
+            color: var(--text-primary);
+            margin-bottom: 4px;
         }
 
         .item-subtitle {
-            font-size: 1rem;
-            color: var(--text-medium);
-            margin-bottom: 5px;
-            font-weight: 400;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
         }
 
         .item-date {
-            font-size: 0.9rem;
-            color: #90A4AE; /* Lighter grey for dates */
+            font-size: 0.85rem;
+            color: var(--text-light);
             font-weight: 300;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: block;
         }
 
         .item-description {
-            color: var(--text-medium);
+            color: var(--text-secondary);
             line-height: 1.6;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
         .skill-card {
             background: var(--background-card);
-            border-radius: 10px;
-            padding: 30px;
+            border-radius: 8px;
+            padding: 25px;
             text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px var(--shadow-light);
-            border: 1px solid var(--border-soft);
+            box-shadow: 0 3px 10px var(--shadow-light);
+            border: 1px solid var(--border-color);
         }
 
         .skill-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px var(--shadow-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px var(--shadow-medium);
         }
 
         .skill-emoji {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 15px;
             display: block;
-            color: var(--primary-dark); /* Color emojis with primary accent */
+            color: var(--beige-darker); /* Colore delle emoji */
         }
 
         .skill-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-            font-size: 1.35rem;
+            font-family: 'Lato', sans-serif;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .skill-card p {
-            color: var(--text-medium);
-            line-height: 1.6;
-            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-size: 0.85rem;
         }
 
         .languages {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
         }
 
         .language-item {
             text-align: center;
-            padding: 25px;
+            padding: 20px;
             background: var(--background-card);
-            border-radius: 10px;
-            min-width: 140px;
+            border-radius: 8px;
+            min-width: 120px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px var(--shadow-light);
-            border: 1px solid var(--border-soft);
+            box-shadow: 0 3px 10px var(--shadow-light);
+            border: 1px solid var(--border-color);
         }
 
         .language-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px var(--shadow-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px var(--shadow-medium);
         }
 
         .language-flag {
-            font-size: 2.5rem;
-            margin-bottom: 12px;
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
 
         .language-name {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            color: var(--text-dark);
+            font-family: 'Lato', sans-serif;
+            font-weight: 500;
+            color: var(--text-primary);
             margin-bottom: 5px;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .language-level {
-            color: var(--text-medium);
-            font-size: 0.85rem;
+            color: var(--text-light);
+            font-size: 0.8rem;
         }
 
         .project-link {
             display: inline-block;
             margin-top: 15px;
-            color: var(--primary-dark);
+            color: var(--beige-darker);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: color 0.3s ease, transform 0.3s ease;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .project-link i {
             margin-left: 5px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
 
         .project-link:hover {
-            color: var(--secondary-accent);
+            color: var(--beige-dark);
             transform: translateX(3px);
             text-decoration: underline;
         }
 
         .image-placeholder {
             width: 100%;
-            height: 200px;
-            background: var(--background-body);
-            border-radius: 8px;
+            height: 180px;
+            background: var(--border-color);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-medium);
-            font-size: 1rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
             margin-bottom: 25px;
-            border: 2px dashed var(--border-soft);
+            border: 2px dashed var(--beige-dark);
             transition: all 0.3s ease;
         }
 
         .image-placeholder:hover {
-            border-color: var(--primary-light);
-            color: var(--primary-dark);
-            background-color: #EAF0F4;
+            border-color: var(--beige-darker);
+            color: var(--beige-darker);
+            background-color: var(--beige-light);
         }
 
         @media (max-width: 768px) {
@@ -404,71 +403,60 @@
                 padding: 15px;
             }
             .container {
-                border-radius: 8px;
+                border-radius: 6px;
             }
             .header {
-                padding: 50px 20px;
+                padding: 40px 20px;
             }
             .profile-image {
-                width: 130px;
-                height: 130px;
+                width: 120px;
+                height: 120px;
             }
             .name {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
             .title {
-                font-size: 1.2rem;
-                margin-bottom: 25px;
+                font-size: 1.1rem;
+                margin-bottom: 20px;
             }
             .contact-info {
                 flex-direction: column;
-                gap: 15px;
+                gap: 12px;
             }
             .main-content {
                 padding: 30px 25px;
             }
             .section {
-                padding: 30px;
+                padding: 25px;
                 margin-bottom: 20px;
             }
             .section-title {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
                 margin-bottom: 20px;
                 gap: 10px;
             }
             .section-title i {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             .skills-grid {
                 grid-template-columns: 1fr;
             }
             .languages {
-                gap: 15px;
+                gap: 10px;
             }
             .language-item {
-                min-width: 120px;
-                padding: 20px;
+                min-width: 100px;
+                padding: 15px;
             }
             .section-image {
-                height: 200px;
+                height: 180px;
             }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header fade-in">
+        <header class="header">
             <div class="profile-image">
                 <img src="profile-image.jpg" alt="Diletta Lecetti" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'">
             </div>
@@ -499,7 +487,7 @@
         </header>
 
         <div class="main-content">
-            <section class="section fade-in">
+            <section class="section">
                 <h2 class="section-title">
                     <i class="fas fa-user-circle"></i>
                     About Me
@@ -516,7 +504,7 @@
                 </p>
             </section>
 
-            <section class="section fade-in">
+            <section class="section">
                 <h2 class="section-title">
                     <i class="fas fa-graduation-cap"></i>
                     Education
@@ -554,7 +542,7 @@
                 </div>
             </section>
 
-            <section class="section fade-in">
+            <section class="section">
                 <h2 class="section-title">
                     <i class="fas fa-briefcase"></i>
                     Professional Experience
@@ -586,7 +574,7 @@
                 </div>
             </section>
 
-            <section class="section fade-in">
+            <section class="section">
                 <h2 class="section-title">
                     <i class="fas fa-cogs"></i>
                     Skills & Competencies
@@ -644,7 +632,7 @@
                 </div>
             </section>
 
-            <section class="section fade-in">
+            <section class="section">
                 <h2 class="section-title">
                     <i class="fas fa-globe"></i>
                     Languages
@@ -680,31 +668,27 @@
     </div>
 
     <script>
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1, // Trigger when 10% of the element is visible
-            rootMargin: '0px 0px -50px 0px' // Reduce trigger area slightly from bottom
+        // Intersection Observer for fade-in animations for sections
+        const sectionObserverOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Optional: Unobserve after it becomes visible if you only want it to animate once
-                    // observer.unobserve(entry.target);
+                    sectionObserver.unobserve(entry.target); // Animate once
                 }
             });
-        }, observerOptions);
+        }, sectionObserverOptions);
 
-        // Apply observer to all elements with 'fade-in' class
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.section').forEach(el => {
+            sectionObserver.observe(el);
         });
 
-        // Ensure the header animates on initial load
-        window.addEventListener('load', () => {
-            document.querySelector('.header').classList.add('visible');
-        });
+        // The header animation is directly in CSS with @keyframes, no JS observer needed for it.
+        // It will trigger as soon as the element is in the DOM.
     </script>
 </body>
 </html>
