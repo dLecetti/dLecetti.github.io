@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,17 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diletta Lecetti - Art & Fashion Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --background-dark: #1A1A2E; /* Deep Indigo */
-            --card-dark: #0F3460; /* Darker Blue for cards */
-            --text-light: #E0E0E0; /* Light Grey for general text */
-            --text-white: #FFFFFF; /* White for main headings */
-            --accent-primary: #E94560; /* Vibrant Red-Pink */
-            --accent-secondary: #FFD700; /* Gold for highlights */
-            --border-subtle: rgba(255, 255, 255, 0.1);
-            --shadow-strong: rgba(0, 0, 0, 0.4);
+            --primary-blue: #007BFF; /* A vibrant blue */
+            --primary-dark-blue: #0056b3; /* Darker blue for hover */
+            --text-dark: #212529; /* Dark charcoal */
+            --text-medium: #495057; /* Medium grey */
+            --text-light: #6c757d; /* Lighter grey */
+            --background-light: #f8f9fa; /* Very light grey */
+            --background-white: #ffffff;
+            --border-color: #e9ecef; /* Light border grey */
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --gradient-start: #007BFF;
+            --gradient-end: #00C6FF; /* A brighter blue */
         }
 
         * {
@@ -25,75 +30,59 @@
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.7;
-            color: var(--text-light);
-            background-color: var(--background-dark);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
-            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+            padding: 30px 20px;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             width: 100%;
             margin: 0 auto;
-            background-color: var(--card-dark);
-            box-shadow: 0 20px 50px var(--shadow-strong);
-            border-radius: 15px;
+            background-color: var(--background-white);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow-light);
             overflow: hidden;
-            border: 1px solid var(--border-subtle);
         }
 
         .header {
-            background: linear-gradient(135deg, var(--card-dark) 0%, #0c2a4d 100%);
-            color: var(--text-white);
-            padding: 80px 40px;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: white;
+            padding: 60px 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            border-bottom: 3px solid var(--accent-primary);
+            border-radius: 10px 10px 0 0;
+            animation: header-fade-in 1s ease-out forwards;
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            left: -20%;
-            width: 140%;
-            height: 140%;
-            background: radial-gradient(circle at 50% 50%, rgba(233, 69, 96, 0.15) 0%, transparent 70%);
-            animation: pulse-glow 5s infinite alternate;
-            pointer-events: none;
-        }
-
-        @keyframes pulse-glow {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.1); opacity: 1; }
+        @keyframes header-fade-in {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .profile-image {
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            background: var(--accent-primary);
-            margin: 0 auto 30px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 0 auto 25px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 80px;
-            color: var(--text-white);
-            border: 6px solid var(--accent-secondary);
+            font-size: 65px;
+            color: white;
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
             overflow: hidden;
-            box-shadow: 0 8px 25px var(--shadow-strong);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-image:hover {
-            transform: scale(1.05) rotate(2deg);
         }
 
         .profile-image img {
@@ -103,417 +92,371 @@
             border-radius: 50%;
         }
 
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
         .name {
-            font-family: 'Oswald', sans-serif;
-            font-size: 4rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
             font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-white);
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            margin-bottom: 5px;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.6rem;
-            color: var(--accent-secondary);
-            margin-bottom: 40px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
             font-weight: 400;
-            letter-spacing: 1px;
-            text-transform: uppercase;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 50px;
+            gap: 30px;
             flex-wrap: wrap;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: var(--text-light);
-            font-size: 1.05rem;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
             font-weight: 300;
         }
 
         .contact-item i {
-            color: var(--accent-primary);
-            font-size: 1.3rem;
-            transition: transform 0.2s ease;
-        }
-
-        .contact-item:hover i {
-            transform: scale(1.2);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
         }
 
         .download-btn {
-            background: var(--accent-primary);
-            color: var(--text-white);
-            padding: 16px 40px;
+            background: white;
+            color: var(--primary-blue);
+            padding: 12px 28px;
             border: none;
-            border-radius: 8px;
-            font-size: 1.15rem;
+            border-radius: 5px;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 15px;
-            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .download-btn:hover {
-            background: var(--accent-secondary);
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(255, 215, 0, 0.4);
-            color: var(--card-dark);
+            background: var(--primary-dark-blue);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
 
         .main-content {
-            padding: 50px;
+            padding: 40px 50px;
         }
 
         .section {
-            background: var(--card-dark);
-            border-radius: 15px;
-            padding: 50px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px var(--shadow-strong);
-            border: 1px solid var(--border-subtle);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            background: var(--background-white);
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0; /* For fade-in animation */
+            transform: translateY(20px); /* For slide-up effect */
         }
 
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(233, 69, 96, 0.05) 0%, transparent 50%, rgba(255, 215, 0, 0.05) 100%);
-            pointer-events: none;
-            z-index: 0;
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px var(--shadow-strong);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
         }
 
         .section-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2.8rem;
-            color: var(--accent-primary);
-            margin-bottom: 35px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
-            gap: 20px;
-            border-bottom: 2px solid var(--border-subtle);
-            padding-bottom: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
+            gap: 12px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
         }
 
         .section-title i {
-            color: var(--accent-secondary);
-            font-size: 2.2rem;
+            color: var(--primary-blue);
+            font-size: 1.6rem;
         }
 
-        .hero-image, .section-image {
+        .section-image {
             width: 100%;
-            height: 320px;
+            height: 250px;
             object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px var(--shadow-strong);
-            border: 2px solid var(--border-subtle);
+            border-radius: 6px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            border: 1px solid var(--border-color);
             transition: transform 0.3s ease;
-            position: relative;
-            z-index: 1;
         }
 
         .section-image:hover {
-            transform: scale(1.02);
+            transform: scale(1.01);
         }
 
         .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-medium);
             text-align: justify;
-            position: relative;
-            z-index: 1;
         }
 
         .education-item, .experience-item {
-            border-left: 4px solid var(--accent-primary);
-            padding-left: 30px;
-            margin-bottom: 40px;
+            border-left: 3px solid var(--primary-blue);
+            padding-left: 20px;
+            margin-bottom: 25px;
             position: relative;
-            z-index: 1;
         }
 
         .education-item::before, .experience-item::before {
             content: '';
             position: absolute;
-            left: -10px;
+            left: -8px;
             top: 0;
-            width: 20px;
-            height: 20px;
-            background: var(--accent-secondary);
+            width: 16px;
+            height: 16px;
+            background: var(--primary-blue);
             border-radius: 50%;
-            border: 4px solid var(--background-dark);
-            box-shadow: 0 0 0 3px var(--accent-primary);
+            border: 3px solid var(--background-white);
+            box-shadow: 0 0 0 2px var(--primary-blue);
         }
 
         .item-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.6rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
             font-weight: 600;
-            color: var(--text-white);
-            margin-bottom: 8px;
-            text-transform: uppercase;
+            color: var(--text-dark);
+            margin-bottom: 4px;
         }
 
         .item-subtitle {
-            font-size: 1.15rem;
-            color: var(--accent-primary);
-            margin-bottom: 8px;
-            font-weight: 400;
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            margin-bottom: 4px;
         }
 
         .item-date {
-            font-size: 1rem;
+            font-size: 0.85rem;
             color: var(--text-light);
             font-weight: 300;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: block;
         }
 
         .item-description {
-            color: var(--text-light);
-            line-height: 1.7;
-            font-size: 1rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+            font-size: 0.9rem;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            position: relative;
-            z-index: 1;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
         .skill-card {
-            background: var(--card-dark);
-            border-radius: 10px;
-            padding: 35px;
+            background: var(--background-white);
+            border-radius: 8px;
+            padding: 25px;
             text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px var(--shadow-strong);
-            border: 1px solid var(--border-subtle);
+            box-shadow: 0 3px 10px var(--shadow-light);
+            border: 1px solid var(--border-color);
         }
 
         .skill-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 20px 40px var(--shadow-strong);
-            background-color: #1a3c6b; /* Slightly lighter on hover */
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px var(--shadow-medium);
         }
 
         .skill-emoji {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: 3rem;
+            margin-bottom: 15px;
             display: block;
-            filter: drop-shadow(0 0 10px var(--accent-secondary));
+            color: var(--primary-blue);
         }
 
         .skill-card h3 {
-            font-family: 'Oswald', sans-serif;
-            color: var(--accent-primary);
-            margin-bottom: 15px;
-            font-size: 1.6rem;
-            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .skill-card p {
-            color: var(--text-light);
-            line-height: 1.6;
-            font-size: 0.95rem;
+            color: var(--text-medium);
+            line-height: 1.5;
+            font-size: 0.85rem;
         }
 
         .languages {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 30px;
-            position: relative;
-            z-index: 1;
+            gap: 15px;
         }
 
         .language-item {
             text-align: center;
-            padding: 30px;
-            background: var(--card-dark);
-            border-radius: 10px;
-            min-width: 160px;
+            padding: 20px;
+            background: var(--background-white);
+            border-radius: 8px;
+            min-width: 120px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px var(--shadow-strong);
-            border: 1px solid var(--border-subtle);
+            box-shadow: 0 3px 10px var(--shadow-light);
+            border: 1px solid var(--border-color);
         }
 
         .language-item:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 15px 30px var(--shadow-strong);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px var(--shadow-medium);
         }
 
         .language-flag {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
 
         .language-name {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-            color: var(--accent-primary);
-            margin-bottom: 8px;
-            font-size: 1.2rem;
-            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            font-size: 1rem;
         }
 
         .language-level {
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         .project-link {
             display: inline-block;
-            margin-top: 20px;
-            color: var(--accent-secondary);
+            margin-top: 15px;
+            color: var(--primary-blue);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: color 0.3s ease, transform 0.3s ease;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .project-link i {
-            margin-left: 8px;
             font-size: 0.9rem;
         }
 
+        .project-link i {
+            margin-left: 5px;
+            font-size: 0.75rem;
+        }
+
         .project-link:hover {
-            color: var(--text-white);
-            transform: translateX(5px);
+            color: var(--primary-dark-blue);
+            transform: translateX(3px);
             text-decoration: underline;
         }
 
         .image-placeholder {
             width: 100%;
-            height: 250px;
-            background: #282A3A; /* Slightly lighter dark */
-            border-radius: 10px;
+            height: 180px;
+            background: var(--border-color);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            border: 2px dashed var(--border-subtle);
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            border: 2px dashed #ced4da;
             transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
         }
 
         .image-placeholder:hover {
-            border-color: var(--accent-primary);
-            color: var(--accent-secondary);
-            background-color: #35384D;
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            background-color: #f1f3f5;
         }
 
         @media (max-width: 768px) {
             body {
-                padding: 20px 10px;
+                padding: 15px;
             }
             .container {
-                border-radius: 10px;
+                border-radius: 6px;
             }
             .header {
-                padding: 60px 20px;
+                padding: 40px 20px;
             }
             .profile-image {
-                width: 140px;
-                height: 140px;
-                margin-bottom: 20px;
+                width: 120px;
+                height: 120px;
             }
             .name {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
             .title {
-                font-size: 1.3rem;
-                margin-bottom: 30px;
+                font-size: 1.1rem;
+                margin-bottom: 20px;
             }
             .contact-info {
                 flex-direction: column;
-                gap: 20px;
+                gap: 12px;
             }
             .main-content {
-                padding: 30px;
+                padding: 30px 25px;
             }
             .section {
-                padding: 30px;
-                margin-bottom: 25px;
+                padding: 25px;
+                margin-bottom: 20px;
             }
             .section-title {
-                font-size: 2.2rem;
-                margin-bottom: 25px;
-                gap: 15px;
+                font-size: 1.7rem;
+                margin-bottom: 20px;
+                gap: 10px;
             }
             .section-title i {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
             }
             .skills-grid {
                 grid-template-columns: 1fr;
             }
             .languages {
-                gap: 20px;
+                gap: 10px;
             }
             .language-item {
-                min-width: 140px;
-                padding: 25px;
+                min-width: 100px;
+                padding: 15px;
             }
-            .hero-image, .section-image {
-                height: 250px;
+            .section-image {
+                height: 180px;
             }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header fade-in">
+        <header class="header">
             <div class="profile-image">
                 <img src="profile-image.jpg" alt="Diletta Lecetti" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'">
             </div>
@@ -544,7 +487,7 @@
         </header>
 
         <div class="main-content">
-            <section class="section fade-in">
+            <section class="section">
                 <h2 class="section-title">
                     <i class="fas fa-user-circle"></i>
                     About Me
@@ -561,7 +504,7 @@
                 </p>
             </section>
 
-            <section class="section fade-in">
+            <section class="section">
                 <h2 class="section-title">
                     <i class="fas fa-graduation-cap"></i>
                     Education
@@ -599,7 +542,7 @@
                 </div>
             </section>
 
-            <section class="section fade-in">
+            <section class="section">
                 <h2 class="section-title">
                     <i class="fas fa-briefcase"></i>
                     Professional Experience
@@ -631,7 +574,7 @@
                 </div>
             </section>
 
-            <section class="section fade-in">
+            <section class="section">
                 <h2 class="section-title">
                     <i class="fas fa-cogs"></i>
                     Skills & Competencies
@@ -689,7 +632,7 @@
                 </div>
             </section>
 
-            <section class="section fade-in">
+            <section class="section">
                 <h2 class="section-title">
                     <i class="fas fa-globe"></i>
                     Languages
@@ -725,31 +668,27 @@
     </div>
 
     <script>
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1, // Trigger when 10% of the element is visible
-            rootMargin: '0px 0px -50px 0px' // Reduce trigger area slightly from bottom
+        // Intersection Observer for fade-in animations for sections
+        const sectionObserverOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Optional: Unobserve after it becomes visible if you only want it to animate once
-                    // observer.unobserve(entry.target);
+                    sectionObserver.unobserve(entry.target); // Animate once
                 }
             });
-        }, observerOptions);
+        }, sectionObserverOptions);
 
-        // Apply observer to all elements with 'fade-in' class
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.section').forEach(el => {
+            sectionObserver.observe(el);
         });
 
-        // Ensure the header animates on initial load
-        window.addEventListener('load', () => {
-            document.querySelector('.header').classList.add('visible');
-        });
+        // The header animation is directly in CSS with @keyframes, no JS observer needed for it.
+        // It will trigger as soon as the element is in the DOM.
     </script>
 </body>
 </html>
