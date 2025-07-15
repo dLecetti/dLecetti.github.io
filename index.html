@@ -5,7 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diletta Lecetti - Art & Fashion Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --background-dark: #1A1A2E; /* Deep Indigo */
+            --card-dark: #0F3460; /* Darker Blue for cards */
+            --text-light: #E0E0E0; /* Light Grey for general text */
+            --text-white: #FFFFFF; /* White for main headings */
+            --accent-primary: #E94560; /* Vibrant Red-Pink */
+            --accent-secondary: #FFD700; /* Gold for highlights */
+            --border-subtle: rgba(255, 255, 255, 0.1);
+            --shadow-strong: rgba(0, 0, 0, 0.4);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,309 +25,484 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--text-light);
+            background-color: var(--background-dark);
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
+            width: 100%;
             margin: 0 auto;
-            padding: 20px;
+            background-color: var(--card-dark);
+            box-shadow: 0 20px 50px var(--shadow-strong);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
         }
 
         .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
+            background: linear-gradient(135deg, var(--card-dark) 0%, #0c2a4d 100%);
+            color: var(--text-white);
+            padding: 80px 40px;
             text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
+            border-bottom: 3px solid var(--accent-primary);
         }
 
         .header::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            animation: shimmer 3s infinite;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle at 50% 50%, rgba(233, 69, 96, 0.15) 0%, transparent 70%);
+            animation: pulse-glow 5s infinite alternate;
+            pointer-events: none;
         }
 
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        @keyframes pulse-glow {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; }
         }
 
         .profile-image {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            margin: 0 auto 20px;
+            background: var(--accent-primary);
+            margin: 0 auto 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 60px;
-            color: white;
-            position: relative;
-            z-index: 1;
+            font-size: 80px;
+            color: var(--text-white);
+            border: 6px solid var(--accent-secondary);
+            overflow: hidden;
+            box-shadow: 0 8px 25px var(--shadow-strong);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         .name {
-            font-size: 3rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
             font-weight: 700;
-            color: #2c3e50;
             margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-white);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
         }
 
         .title {
-            font-size: 1.3rem;
-            color: #7f8c8d;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            color: var(--accent-secondary);
+            margin-bottom: 40px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 50px;
             flex-wrap: wrap;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 40px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            color: #34495e;
-            font-size: 0.95rem;
+            gap: 12px;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            font-weight: 300;
         }
 
         .contact-item i {
-            color: #667eea;
-            font-size: 1.1rem;
+            color: var(--accent-primary);
+            font-size: 1.3rem;
+            transition: transform 0.2s ease;
+        }
+
+        .contact-item:hover i {
+            transform: scale(1.2);
         }
 
         .download-btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 12px 30px;
+            background: var(--accent-primary);
+            color: var(--text-white);
+            padding: 16px 40px;
             border: none;
-            border-radius: 25px;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-size: 1.15rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .download-btn:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(255, 215, 0, 0.4);
+            color: var(--card-dark);
+        }
+
+        .main-content {
+            padding: 50px;
+        }
+
+        .section {
+            background: var(--card-dark);
+            border-radius: 15px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px var(--shadow-strong);
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(233, 69, 96, 0.05) 0%, transparent 50%, rgba(255, 215, 0, 0.05) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px var(--shadow-strong);
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8rem;
+            color: var(--accent-primary);
+            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 2px solid var(--border-subtle);
+            padding-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             position: relative;
             z-index: 1;
         }
 
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
         .section-title i {
-            color: #667eea;
-            font-size: 1.5rem;
+            color: var(--accent-secondary);
+            font-size: 2.2rem;
+        }
+
+        .hero-image, .section-image {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px var(--shadow-strong);
+            border: 2px solid var(--border-subtle);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-image:hover {
+            transform: scale(1.02);
         }
 
         .about-text {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #34495e;
+            color: var(--text-light);
             text-align: justify;
+            position: relative;
+            z-index: 1;
         }
 
         .education-item, .experience-item {
-            border-left: 4px solid #667eea;
-            padding-left: 20px;
-            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-primary);
+            padding-left: 30px;
+            margin-bottom: 40px;
             position: relative;
+            z-index: 1;
         }
 
         .education-item::before, .experience-item::before {
             content: '';
             position: absolute;
-            left: -8px;
+            left: -10px;
             top: 0;
-            width: 12px;
-            height: 12px;
-            background: #667eea;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-secondary);
             border-radius: 50%;
+            border: 4px solid var(--background-dark);
+            box-shadow: 0 0 0 3px var(--accent-primary);
         }
 
         .item-title {
-            font-size: 1.3rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
             font-weight: 600;
-            color: #2c3e50;
+            color: var(--text-white);
             margin-bottom: 8px;
+            text-transform: uppercase;
         }
 
         .item-subtitle {
-            font-size: 1rem;
-            color: #7f8c8d;
-            margin-bottom: 5px;
+            font-size: 1.15rem;
+            color: var(--accent-primary);
+            margin-bottom: 8px;
+            font-weight: 400;
         }
 
         .item-date {
-            font-size: 0.9rem;
-            color: #95a5a6;
-            font-weight: 500;
-            margin-bottom: 10px;
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 300;
+            margin-bottom: 15px;
+            display: block;
         }
 
         .item-description {
-            color: #34495e;
-            line-height: 1.6;
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            position: relative;
+            z-index: 1;
         }
 
-        .skill-category {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            padding: 25px;
+        .skill-card {
+            background: var(--card-dark);
+            border-radius: 10px;
+            padding: 35px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow-strong);
+            border: 1px solid var(--border-subtle);
         }
 
-        .skill-category:hover {
-            transform: translateY(-5px);
+        .skill-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px var(--shadow-strong);
+            background-color: #1a3c6b; /* Slightly lighter on hover */
         }
 
-        .skill-category h3 {
-            color: #2c3e50;
+        .skill-emoji {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(0 0 10px var(--accent-secondary));
+        }
+
+        .skill-card h3 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--accent-primary);
             margin-bottom: 15px;
-            font-size: 1.2rem;
+            font-size: 1.6rem;
+            text-transform: uppercase;
         }
 
-        .skill-category i {
-            font-size: 2rem;
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-
-        .skill-list {
-            list-style: none;
-        }
-
-        .skill-list li {
-            padding: 5px 0;
-            color: #34495e;
+        .skill-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         .languages {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
         }
 
         .language-item {
             text-align: center;
-            padding: 20px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            min-width: 120px;
-            transition: transform 0.3s ease;
+            padding: 30px;
+            background: var(--card-dark);
+            border-radius: 10px;
+            min-width: 160px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow-strong);
+            border: 1px solid var(--border-subtle);
         }
 
         .language-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 30px var(--shadow-strong);
+        }
+
+        .language-flag {
+            font-size: 3rem;
+            margin-bottom: 15px;
         }
 
         .language-name {
+            font-family: 'Oswald', sans-serif;
             font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 5px;
+            color: var(--accent-primary);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
         }
 
         .language-level {
-            color: #7f8c8d;
+            color: var(--text-light);
             font-size: 0.9rem;
         }
 
         .project-link {
             display: inline-block;
-            margin-top: 10px;
-            color: #667eea;
+            margin-top: 20px;
+            color: var(--accent-secondary);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            font-weight: 600;
+            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .project-link i {
+            margin-left: 8px;
+            font-size: 0.9rem;
         }
 
         .project-link:hover {
-            color: #764ba2;
+            color: var(--text-white);
+            transform: translateX(5px);
+            text-decoration: underline;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: #282A3A; /* Slightly lighter dark */
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            border: 2px dashed var(--border-subtle);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .image-placeholder:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-secondary);
+            background-color: #35384D;
         }
 
         @media (max-width: 768px) {
-            .name {
-                font-size: 2rem;
+            body {
+                padding: 20px 10px;
             }
-
+            .container {
+                border-radius: 10px;
+            }
+            .header {
+                padding: 60px 20px;
+            }
+            .profile-image {
+                width: 140px;
+                height: 140px;
+                margin-bottom: 20px;
+            }
+            .name {
+                font-size: 3rem;
+            }
+            .title {
+                font-size: 1.3rem;
+                margin-bottom: 30px;
+            }
             .contact-info {
                 flex-direction: column;
+                gap: 20px;
+            }
+            .main-content {
+                padding: 30px;
+            }
+            .section {
+                padding: 30px;
+                margin-bottom: 25px;
+            }
+            .section-title {
+                font-size: 2.2rem;
+                margin-bottom: 25px;
                 gap: 15px;
             }
-
-            .section {
-                padding: 25px;
+            .section-title i {
+                font-size: 1.8rem;
             }
-
             .skills-grid {
                 grid-template-columns: 1fr;
+            }
+            .languages {
+                gap: 20px;
+            }
+            .language-item {
+                min-width: 140px;
+                padding: 25px;
+            }
+            .hero-image, .section-image {
+                height: 250px;
             }
         }
 
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
         }
 
         .fade-in.visible {
@@ -328,7 +515,7 @@
     <div class="container">
         <header class="header fade-in">
             <div class="profile-image">
-                <i class="fas fa-user"></i>
+                <img src="profile-image.jpg" alt="Diletta Lecetti" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'">
             </div>
             <h1 class="name">Diletta Lecetti</h1>
             <p class="title">Art & Fashion Cultural Heritage Specialist</p>
@@ -356,168 +543,210 @@
             </a>
         </header>
 
-        <section class="section fade-in">
-            <h2 class="section-title">
-                <i class="fas fa-user-circle"></i>
-                About Me
-            </h2>
-            <p class="about-text">
-                I am a creative, precise, and motivated individual with a strong passion for art and fashion. 
-                I am distinguished by curiosity, a strong aesthetic sense, and a constant desire to learn: 
-                I love staying updated and exploring new topics. I approach every project with commitment, 
-                attention to detail, and a professional spirit oriented towards continuous growth.
-            </p>
-        </section>
+        <div class="main-content">
+            <section class="section fade-in">
+                <h2 class="section-title">
+                    <i class="fas fa-user-circle"></i>
+                    About Me
+                </h2>
+                <img src="about-image.jpg" alt="About Diletta" class="section-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="image-placeholder" style="display: none;">
+                    <span>📸 Upload about-image.jpg for a personal touch</span>
+                </div>
+                <p class="about-text">
+                    I am a **creative, precise, and motivated individual** with a strong passion for art and fashion. 
+                    I am distinguished by **curiosity, a strong aesthetic sense, and a constant desire to learn**: 
+                    I love staying updated and exploring new topics. I approach every project with commitment, 
+                    attention to detail, and a professional spirit oriented towards continuous growth.
+                </p>
+            </section>
 
-        <section class="section fade-in">
-            <h2 class="section-title">
-                <i class="fas fa-graduation-cap"></i>
-                Education
-            </h2>
-            <div class="education-item">
-                <h3 class="item-title">Master's in Cultural Design</h3>
-                <p class="item-subtitle">Università Cattolica del Sacro Cuore & Politecnico di Milano</p>
-                <p class="item-date">2024 - June 2025</p>
-                <p class="item-description">
-                    Master's program in "Progettare Cultura. Arte, Design, Imprese Culturali" 
-                    (Designing Culture: Art, Design, Cultural Enterprises)
-                </p>
-            </div>
-            <div class="education-item">
-                <h3 class="item-title">Bachelor's in Cultural Heritage</h3>
-                <p class="item-subtitle">Università degli Studi di Verona</p>
-                <p class="item-date">2021 - 2024</p>
-                <p class="item-description">
-                    Bachelor's degree in Cultural Heritage with a focus on Art History. 
-                    Thesis: "An Indissoluble Union: Art and Fashion in Roberto Capucci's Creations" 
-                    supervised by Prof. Alessandra Zamperini. Final grade: 110/110 cum laude.
-                </p>
-            </div>
-            <div class="education-item">
-                <h3 class="item-title">Language High School Diploma</h3>
-                <p class="item-subtitle">Liceo Linguistico Guarino Veronese, Verona</p>
-                <p class="item-date">2015 - 2020</p>
-                <p class="item-description">
-                    Diploma in Languages (English, Spanish, and German)
-                </p>
-            </div>
-        </section>
+            <section class="section fade-in">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Education
+                </h2>
+                <img src="education-image.jpg" alt="Education" class="section-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="image-placeholder" style="display: none;">
+                    <span>🎓 Upload education-image.jpg to showcase your academic journey</span>
+                </div>
+                <div class="education-item">
+                    <h3 class="item-title">Master's in Cultural Design</h3>
+                    <p class="item-subtitle">Università Cattolica del Sacro Cuore & Politecnico di Milano</p>
+                    <span class="item-date">2024 - June 2025</span>
+                    <p class="item-description">
+                        Master's program in "Progettare Cultura. Arte, Design, Imprese Culturali" 
+                        (Designing Culture: Art, Design, Cultural Enterprises)
+                    </p>
+                </div>
+                <div class="education-item">
+                    <h3 class="item-title">Bachelor's in Cultural Heritage</h3>
+                    <p class="item-subtitle">Università degli Studi di Verona</p>
+                    <span class="item-date">2021 - 2024</span>
+                    <p class="item-description">
+                        Bachelor's degree in Cultural Heritage with a focus on Art History. 
+                        Thesis: "An Indissoluble Union: Art and Fashion in Roberto Capucci's Creations" 
+                        supervised by Prof. Alessandra Zamperini. Final grade: **110/110 cum laude**.
+                    </p>
+                </div>
+                <div class="education-item">
+                    <h3 class="item-title">Language High School Diploma</h3>
+                    <p class="item-subtitle">Liceo Linguistico Guarino Veronese, Verona</p>
+                    <span class="item-date">2015 - 2020</span>
+                    <p class="item-description">
+                        Diploma in Languages (English, Spanish, and German)
+                    </p>
+                </div>
+            </section>
 
-        <section class="section fade-in">
-            <h2 class="section-title">
-                <i class="fas fa-briefcase"></i>
-                Professional Experience
-            </h2>
-            <div class="experience-item">
-                <h3 class="item-title">Waitress & Team Coordinator</h3>
-                <p class="item-subtitle">Ristobar al Centro, Verona</p>
-                <p class="item-date">2021 - 2024</p>
-                <p class="item-description">
-                    Serving customers with additional responsibilities for staff coordination and cash management. 
-                    Developed strong interpersonal skills and leadership capabilities in a fast-paced environment.
-                </p>
-            </div>
-            <div class="experience-item">
-                <h3 class="item-title">Collaborative Project Participant</h3>
-                <p class="item-subtitle">Ritratti d'Archivio, Venice</p>
-                <p class="item-date">2022</p>
-                <p class="item-description">
-                    Participated in a collaborative project between photographer Camilla Glorioso and vintage store SANGUEBLU, 
-                    aimed at creating new connections between young fashion talents and unique archive pieces.
-                </p>
-                <a href="https://www.sangueblu.venezia.it/pages/ritratti-darchivio" class="project-link" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> View Project
-                </a>
-            </div>
-        </section>
+            <section class="section fade-in">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Professional Experience
+                </h2>
+                <img src="experience-image.jpg" alt="Professional Experience" class="section-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="image-placeholder" style="display: none;">
+                    <span>💼 Upload experience-image.jpg to highlight your professional journey</span>
+                </div>
+                <div class="experience-item">
+                    <h3 class="item-title">Waitress & Team Coordinator</h3>
+                    <p class="item-subtitle">Ristobar al Centro, Verona</p>
+                    <span class="item-date">2021 - 2024</span>
+                    <p class="item-description">
+                        Serving customers with additional responsibilities for staff coordination and cash management. 
+                        Developed strong **interpersonal skills** and **leadership capabilities** in a fast-paced environment.
+                    </p>
+                </div>
+                <div class="experience-item">
+                    <h3 class="item-title">Collaborative Project Participant</h3>
+                    <p class="item-subtitle">Ritratti d'Archivio, Venice</p>
+                    <span class="item-date">2022</span>
+                    <p class="item-description">
+                        Participated in a collaborative project between photographer Camilla Glorioso and vintage store SANGUEBLU, 
+                        aimed at creating new connections between young fashion talents and unique archive pieces.
+                    </p>
+                    <a href="https://www.sangueblu.venezia.it/pages/ritratti-darchivio" class="project-link" target="_blank">
+                        View Project <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </section>
 
-        <section class="section fade-in">
-            <h2 class="section-title">
-                <i class="fas fa-cogs"></i>
-                Skills & Competencies
-            </h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <i class="fas fa-desktop"></i>
-                    <h3>Technical Skills</h3>
-                    <ul class="skill-list">
-                        <li>Microsoft Office Suite (Advanced)</li>
-                        <li>Adobe Photoshop & Illustrator (Basic)</li>
-                        <li>Canva (Advanced)</li>
-                        <li>Mac & PC (Advanced)</li>
-                    </ul>
+            <section class="section fade-in">
+                <h2 class="section-title">
+                    <i class="fas fa-cogs"></i>
+                    Skills & Competencies
+                </h2>
+                <img src="skills-image.jpg" alt="Skills" class="section-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="image-placeholder" style="display: none;">
+                    <span>🚀 Upload skills-image.jpg to showcase your abilities</span>
                 </div>
-                <div class="skill-category">
-                    <i class="fas fa-users"></i>
-                    <h3>Interpersonal Skills</h3>
-                    <ul class="skill-list">
-                        <li>Excellent communication</li>
-                        <li>Conflict mediation</li>
-                        <li>Active listening</li>
-                        <li>Team collaboration</li>
-                        <li>Customer service</li>
-                    </ul>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <span class="skill-emoji">💻</span>
+                        <h3>Technical Skills</h3>
+                        <p>Advanced proficiency in **Microsoft Office Suite**, **Adobe Creative Suite** (Photoshop & Illustrator), **Canva**, and cross-platform computing (Mac & PC).</p>
+                    </div>
+                    <div class="skill-card">
+                        <span class="skill-emoji">🤝</span>
+                        <h3>Communication</h3>
+                        <p>Excellent verbal and written communication skills developed through customer service, team coordination, and academic presentations.</p>
+                    </div>
+                    <div class="skill-card">
+                        <span class="skill-emoji">🕊️</span>
+                        <h3>Conflict Resolution</h3>
+                        <p>Strong mediation abilities and conflict management skills gained through leadership roles in dynamic work environments.</p>
+                    </div>
+                    <div class="skill-card">
+                        <span class="skill-emoji">👂</span>
+                        <h3>Active Listening</h3>
+                        <p>Exceptional listening skills with ability to understand and respect diverse perspectives and client needs.</p>
+                    </div>
+                    <div class="skill-card">
+                        <span class="skill-emoji">👥</span>
+                        <h3>Team Leadership</h3>
+                        <p>Proven ability to coordinate teams, delegate tasks effectively, and foster collaborative work environments.</p>
+                    </div>
+                    <div class="skill-card">
+                        <span class="skill-emoji">⚡</span>
+                        <h3>Problem Solving</h3>
+                        <p>Quick thinking and creative problem-solving abilities, especially in fast-paced and challenging situations.</p>
+                    </div>
+                    <div class="skill-card">
+                        <span class="skill-emoji">📅</span>
+                        <h3>Project Management</h3>
+                        <p>Strong organizational skills with experience managing multiple projects and meeting tight deadlines consistently.</p>
+                    </div>
+                    <div class="skill-card">
+                        <span class="skill-emoji">🔍</span>
+                        <h3>Research & Analysis</h3>
+                        <p>Excellent research capabilities and analytical thinking developed through academic work and cultural heritage studies.</p>
+                    </div>
+                    <div class="skill-card">
+                        <span class="skill-emoji">🎯</span>
+                        <h3>Independent Work</h3>
+                        <p>Self-motivated and capable of working autonomously while maintaining high standards and attention to detail.</p>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <i class="fas fa-tasks"></i>
-                    <h3>Organizational Skills</h3>
-                    <ul class="skill-list">
-                        <li>Project management</li>
-                        <li>Deadline compliance</li>
-                        <li>Attention to detail</li>
-                        <li>Research & investigation</li>
-                        <li>Independent work</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="section fade-in">
-            <h2 class="section-title">
-                <i class="fas fa-globe"></i>
-                Languages
-            </h2>
-            <div class="languages">
-                <div class="language-item">
-                    <div class="language-name">English</div>
-                    <div class="language-level">C1 - Advanced</div>
+            <section class="section fade-in">
+                <h2 class="section-title">
+                    <i class="fas fa-globe"></i>
+                    Languages
+                </h2>
+                <img src="languages-image.jpg" alt="Languages" class="section-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="image-placeholder" style="display: none;">
+                    <span>🌍 Upload languages-image.jpg to showcase your multilingual abilities</span>
                 </div>
-                <div class="language-item">
-                    <div class="language-name">Spanish</div>
-                    <div class="language-level">B1 - Intermediate</div>
+                <div class="languages">
+                    <div class="language-item">
+                        <div class="language-flag">🇮🇹</div>
+                        <div class="language-name">Italian</div>
+                        <div class="language-level">Native</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-flag">🇬🇧</div>
+                        <div class="language-name">English</div>
+                        <div class="language-level">C1 - Advanced</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-flag">🇪🇸</div>
+                        <div class="language-name">Spanish</div>
+                        <div class="language-level">B1 - Intermediate</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-flag">🇩🇪</div>
+                        <div class="language-name">German</div>
+                        <div class="language-level">A2 - Elementary</div>
+                    </div>
                 </div>
-                <div class="language-item">
-                    <div class="language-name">German</div>
-                    <div class="language-level">A2 - Elementary</div>
-                </div>
-                <div class="language-item">
-                    <div class="language-name">Italian</div>
-                    <div class="language-level">Native</div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
 
     <script>
-        // Smooth scrolling animation
+        // Intersection Observer for fade-in animations
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.1, // Trigger when 10% of the element is visible
+            rootMargin: '0px 0px -50px 0px' // Reduce trigger area slightly from bottom
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Optional: Unobserve after it becomes visible if you only want it to animate once
+                    // observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
+        // Apply observer to all elements with 'fade-in' class
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
 
-        // Initial animation for header
+        // Ensure the header animates on initial load
         window.addEventListener('load', () => {
             document.querySelector('.header').classList.add('visible');
         });
