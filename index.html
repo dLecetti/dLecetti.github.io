@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diletta Lecetti - Art & Fashion Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #34495e;
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            color: #667eea;
+            font-size: 1.5rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #34495e;
+            text-align: justify;
+        }
+
+        .education-item, .experience-item {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .education-item::before, .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        .item-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .item-subtitle {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        .item-date {
+            font-size: 0.9rem;
+            color: #95a5a6;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .item-description {
+            color: #34495e;
+            line-height: 1.6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .skill-category i {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 5px 0;
+            color: #34495e;
+        }
+
+        .languages {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .language-item {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            min-width: 120px;
+            transition: transform 0.3s ease;
+        }
+
+        .language-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .language-level {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #764ba2;
+        }
+
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header fade-in">
+            <div class="profile-image">
+                <i class="fas fa-user"></i>
+            </div>
+            <h1 class="name">Diletta Lecetti</h1>
+            <p class="title">Art & Fashion Cultural Heritage Specialist</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+39 331 357 7526</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>diletta.lecetti01@icatt.it</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Milan, Italy</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-birthday-cake"></i>
+                    <span>May 18, 2001</span>
+                </div>
+            </div>
+            <a href="Lecetti_Diletta_cv finale.pdf" class="download-btn" download>
+                <i class="fas fa-download"></i>
+                Download CV
+            </a>
+        </header>
+
+        <section class="section fade-in">
+            <h2 class="section-title">
+                <i class="fas fa-user-circle"></i>
+                About Me
+            </h2>
+            <p class="about-text">
+                I am a creative, precise, and motivated individual with a strong passion for art and fashion. 
+                I am distinguished by curiosity, a strong aesthetic sense, and a constant desire to learn: 
+                I love staying updated and exploring new topics. I approach every project with commitment, 
+                attention to detail, and a professional spirit oriented towards continuous growth.
+            </p>
+        </section>
+
+        <section class="section fade-in">
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i>
+                Education
+            </h2>
+            <div class="education-item">
+                <h3 class="item-title">Master's in Cultural Design</h3>
+                <p class="item-subtitle">Università Cattolica del Sacro Cuore & Politecnico di Milano</p>
+                <p class="item-date">2024 - June 2025</p>
+                <p class="item-description">
+                    Master's program in "Progettare Cultura. Arte, Design, Imprese Culturali" 
+                    (Designing Culture: Art, Design, Cultural Enterprises)
+                </p>
+            </div>
+            <div class="education-item">
+                <h3 class="item-title">Bachelor's in Cultural Heritage</h3>
+                <p class="item-subtitle">Università degli Studi di Verona</p>
+                <p class="item-date">2021 - 2024</p>
+                <p class="item-description">
+                    Bachelor's degree in Cultural Heritage with a focus on Art History. 
+                    Thesis: "An Indissoluble Union: Art and Fashion in Roberto Capucci's Creations" 
+                    supervised by Prof. Alessandra Zamperini. Final grade: 110/110 cum laude.
+                </p>
+            </div>
+            <div class="education-item">
+                <h3 class="item-title">Language High School Diploma</h3>
+                <p class="item-subtitle">Liceo Linguistico Guarino Veronese, Verona</p>
+                <p class="item-date">2015 - 2020</p>
+                <p class="item-description">
+                    Diploma in Languages (English, Spanish, and German)
+                </p>
+            </div>
+        </section>
+
+        <section class="section fade-in">
+            <h2 class="section-title">
+                <i class="fas fa-briefcase"></i>
+                Professional Experience
+            </h2>
+            <div class="experience-item">
+                <h3 class="item-title">Waitress & Team Coordinator</h3>
+                <p class="item-subtitle">Ristobar al Centro, Verona</p>
+                <p class="item-date">2021 - 2024</p>
+                <p class="item-description">
+                    Serving customers with additional responsibilities for staff coordination and cash management. 
+                    Developed strong interpersonal skills and leadership capabilities in a fast-paced environment.
+                </p>
+            </div>
+            <div class="experience-item">
+                <h3 class="item-title">Collaborative Project Participant</h3>
+                <p class="item-subtitle">Ritratti d'Archivio, Venice</p>
+                <p class="item-date">2022</p>
+                <p class="item-description">
+                    Participated in a collaborative project between photographer Camilla Glorioso and vintage store SANGUEBLU, 
+                    aimed at creating new connections between young fashion talents and unique archive pieces.
+                </p>
+                <a href="https://www.sangueblu.venezia.it/pages/ritratti-darchivio" class="project-link" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> View Project
+                </a>
+            </div>
+        </section>
+
+        <section class="section fade-in">
+            <h2 class="section-title">
+                <i class="fas fa-cogs"></i>
+                Skills & Competencies
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>Microsoft Office Suite (Advanced)</li>
+                        <li>Adobe Photoshop & Illustrator (Basic)</li>
+                        <li>Canva (Advanced)</li>
+                        <li>Mac & PC (Advanced)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <i class="fas fa-users"></i>
+                    <h3>Interpersonal Skills</h3>
+                    <ul class="skill-list">
+                        <li>Excellent communication</li>
+                        <li>Conflict mediation</li>
+                        <li>Active listening</li>
+                        <li>Team collaboration</li>
+                        <li>Customer service</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Organizational Skills</h3>
+                    <ul class="skill-list">
+                        <li>Project management</li>
+                        <li>Deadline compliance</li>
+                        <li>Attention to detail</li>
+                        <li>Research & investigation</li>
+                        <li>Independent work</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in">
+            <h2 class="section-title">
+                <i class="fas fa-globe"></i>
+                Languages
+            </h2>
+            <div class="languages">
+                <div class="language-item">
+                    <div class="language-name">English</div>
+                    <div class="language-level">C1 - Advanced</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">Spanish</div>
+                    <div class="language-level">B1 - Intermediate</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">German</div>
+                    <div class="language-level">A2 - Elementary</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">Italian</div>
+                    <div class="language-level">Native</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Initial animation for header
+        window.addEventListener('load', () => {
+            document.querySelector('.header').classList.add('visible');
+        });
+    </script>
+</body>
+</html>
